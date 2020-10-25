@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "padc_food_delivery_app"

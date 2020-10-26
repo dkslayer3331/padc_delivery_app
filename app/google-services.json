@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "329984979330",
+    "firebase_url": "https://padc-delivery-app.firebaseio.com",
+    "project_id": "padc-delivery-app",
+    "storage_bucket": "padc-delivery-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329984979330:android:000e8771b4804b395d5f9b",
+        "android_client_info": {
+          "package_name": "com.dazai.yukino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329984979330-mlfffo7v9tfonjdq1t8pm850l4glkv06.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4yaiWxjBi5pf-gXt63fOCecnjZhYyF0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329984979330-mlfffo7v9tfonjdq1t8pm850l4glkv06.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

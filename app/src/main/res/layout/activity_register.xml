@@ -9,20 +9,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvCreateAccLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create Your Account"
-        android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/tvCreateAccLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Your Account"
+            android:textSize="24sp"/>
 
-       <EditText
-           android:id="@+id/etRegName"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:hint="Username"
-           android:layout_below="@id/tvCreateAccLabel"
-           android:layout_marginTop="16dp"/>
+        <EditText
+            android:id="@+id/etRegName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:layout_below="@id/tvCreateAccLabel"
+            android:layout_marginTop="16dp"/>
 
         <EditText
             android:id="@+id/etRegMail"
@@ -67,6 +67,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvAlrdyRegLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

@@ -6,6 +6,7 @@ import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.toCartVO
 import com.dazai.yukino.toFoodVO
+import com.dazai.yukino.toRestaurantVO
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -17,7 +18,21 @@ object CloudFireStoreImpl : DeliveryApi {
     private val fireStore = Firebase.firestore
 
     override fun getRestaurants(onSuccess: (List<RestaurantVO>) -> Unit, onFail: (String) -> Unit) {
+        fireStore.collection("restaurants").addSnapshotListener { value, error ->
+            error?.let {
+                onFail(error.localizedMessage ?: NO_INTERNET_CONNECTION)
+            } ?: run {
+              val datas = value?.documents ?: emptyList()
+              val tempList = mutableListOf<RestaurantVO>()
 
+                datas.forEach {
+                    tempList.add(it.data.toRestaurantVO())
+                }
+
+                onSuccess(tempList)
+
+            }
+        }
     }
 
     override fun getFoods(onSuccess: (List<FoodVO>) -> Unit, onFail: (String) -> Unit) {

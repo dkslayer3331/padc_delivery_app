@@ -4,6 +4,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.dazai.yukino.data.vos.CartVO
 import com.dazai.yukino.data.vos.FoodVO
+import com.dazai.yukino.data.vos.RestaurantVO
 
 /**
  * Created by Moe Htet on 27,October,2020
@@ -37,5 +38,24 @@ fun Map<String, Any>?.toCartVO() : CartVO{
         id = this?.get("id") as String,
         quantity = this?.get("quantity") as Int,
         userId = this?.get("user_id") as String
+    )
+}
+
+fun Map<String, Any>?.toRestaurantVO() : RestaurantVO{
+    val tempAvailFoods = mutableListOf<FoodVO>()
+    val availFoods = this?.get("avail_foods") as Array<Map<String,Any>>?
+    availFoods?.let {
+        it.forEach { food ->
+            tempAvailFoods.add(food.toFoodVO())
+        }
+    }
+    return RestaurantVO(
+       stars = this?.get("stars") as Double,
+        id = this?.get("id") as String,
+        ratings = this?.get("ratings") as Int,
+        name = this?.get("name") as String,
+        availFoods = tempAvailFoods,
+        location = this?.get("location") as String,
+        shopImgUrl = this?.get("shop_img_url") as String
     )
 }

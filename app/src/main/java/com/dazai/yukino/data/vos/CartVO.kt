@@ -8,7 +8,7 @@ data class CartVO(
 	var quantity: Int = 0,
 
 	@SerializedName("user_id")
-	var userId: String,
+	var userId: String = "",
 
 	@SerializedName("cart_items")
 	var cartItems: List<FoodVO> = listOf(),

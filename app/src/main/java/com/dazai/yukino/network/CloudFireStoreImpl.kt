@@ -4,6 +4,7 @@ import com.dazai.yukino.NO_INTERNET_CONNECTION
 import com.dazai.yukino.data.vos.CartVO
 import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
+import com.dazai.yukino.toCartVO
 import com.dazai.yukino.toFoodVO
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -42,6 +43,20 @@ object CloudFireStoreImpl : DeliveryApi {
         onSuccess: (CartVO) -> Unit,
         onFail: (String) -> Unit
     ) {
+        fireStore.collection("cart").addSnapshotListener { value, error ->
+            error?.let {
+                onFail(error.message ?: NO_INTERNET_CONNECTION)
+            } ?: run {
+                val datas = value?.documents ?: emptyList()
+                val cartList = mutableListOf<CartVO>()
+                for(data in datas){
+                    val data = data.data
+                    cartList.add(data.toCartVO())
+                }
 
+                onSuccess(cartList.first { it.userId == userId })
+
+            }
+        }
     }
 }

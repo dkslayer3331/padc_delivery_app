@@ -1,12 +1,11 @@
 package com.dazai.yukino.network
 
-import com.dazai.yukino.NO_INTERNET_CONNECTION
+import android.util.Log
+import com.dazai.yukino.*
 import com.dazai.yukino.data.vos.CartVO
 import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
-import com.dazai.yukino.toCartVO
-import com.dazai.yukino.toFoodVO
-import com.dazai.yukino.toRestaurantVO
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -78,7 +77,29 @@ object CloudFireStoreImpl : DeliveryApi {
         }
     }
 
-    override fun addToCart(foodVO: FoodVO) {
+    override fun addToCart(foodVO: FoodVO, userId: String, quantity: Int) {
+       val food = foodVO.toMap()
+        val wrapper = listOf(
+            hashMapOf(
+                "food" to food,
+                "quantity" to quantity
+            )
+        )
+
+        val cart = hashMapOf(
+            "user_id" to userId,
+            "id" to ""
+        )
+
+       val document =  fireStore.collection("cart").document(userId)
+
+        document.set(cart)
+
+        document.update("cart_items",FieldValue.arrayUnion(food)).addOnCompleteListener {
+            Log.d("arrayUpdate","done")
+        }.addOnFailureListener {
+            Log.d("arrayUpdateF",it.localizedMessage)
+        }
 
     }
 

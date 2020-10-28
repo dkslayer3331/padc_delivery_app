@@ -61,3 +61,17 @@ fun Map<String, Any>?.toRestaurantVO() : RestaurantVO{
         shopImgUrl = this?.get("shop_img_url") as String
     )
 }
+
+fun FoodVO.toMap() : Map<String,Any>{
+    return hashMapOf(
+        "id" to this.id,
+        "price" to this.price,
+        "image_url" to this.imageUrl,
+        "ratings" to this.ratings,
+        "name" to this.name,
+        "ingredients" to this.ingredients,
+        "stars" to this.stars,
+        "popular" to this.popular,
+        "type" to this.type
+    )
+}

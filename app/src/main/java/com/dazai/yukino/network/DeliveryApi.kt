@@ -11,4 +11,6 @@ interface DeliveryApi {
     fun getRestaurants(onSuccess: (List<RestaurantVO>)-> Unit,onFail : (String)-> Unit)
     fun getFoods(onSuccess: (List<FoodVO>)-> Unit,onFail : (String)-> Unit)
     fun getCartItems(userId : String,onSuccess: (CartVO)-> Unit,onFail : (String)-> Unit)
+    fun addToCart(foodVO: FoodVO)
+
 }

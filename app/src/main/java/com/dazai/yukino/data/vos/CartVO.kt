@@ -4,14 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class CartVO(
 
-	@SerializedName("quantity")
-	var quantity: Int = 0,
-
 	@SerializedName("user_id")
 	var userId: String = "",
 
 	@SerializedName("cart_items")
-	var cartItems: List<FoodVO> = listOf(),
+	var cartItems: List<CartItemWrapper> = listOf(),
 
 	@SerializedName("id")
 	var id: String = ""

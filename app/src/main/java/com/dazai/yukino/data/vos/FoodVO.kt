@@ -20,11 +20,15 @@ data class FoodVO(
 	var ingredients: String = "",
 
 	@SerializedName("id")
-	var id: String,
+	var id: String = "",
 
 	@SerializedName("stars")
 	var stars: Double = 0.0,
 
 	@SerializedName("popular")
-	var popular: Boolean = false
+	var popular: Boolean = false,
+
+	@SerializedName("type")
+	var type : String = ""
+
 )

@@ -18,6 +18,9 @@ object CloudFireStoreImpl : DeliveryApi {
     private val fireStore = Firebase.firestore
 
     override fun getRestaurants(onSuccess: (List<RestaurantVO>) -> Unit, onFail: (String) -> Unit) {
+
+        fireStore.collection("gg").document()
+
         fireStore.collection("restaurants").addSnapshotListener { value, error ->
             error?.let {
                 onFail(error.localizedMessage ?: NO_INTERNET_CONNECTION)
@@ -74,4 +77,9 @@ object CloudFireStoreImpl : DeliveryApi {
             }
         }
     }
+
+    override fun addToCart(foodVO: FoodVO) {
+
+    }
+
 }

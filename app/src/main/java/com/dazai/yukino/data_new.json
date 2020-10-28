@@ -1,0 +1,80 @@
+{
+  "food": {
+    "burger": [
+      {
+        "id": "d08db371-355c-4f7d-9bc3-fdc16d1f8f2c",
+        "name": "Burger",
+        "price": 2400,
+        "image_url": "",
+        "popular": false,
+        "stars": 4.3,
+        "ratings": 100,
+        "ingredients": "beef, egg"
+      }
+    ],
+    "coffee": [
+      {
+        "id": "62fde271-d153-4b25-9581-9baaf0121a44",
+        "name": "Maxx Coffee",
+        "price": 3400,
+        "image_url": "",
+        "popular": true,
+        "stars": 5.0,
+        "ratings": 400,
+        "ingredients": "milk, coffee"
+      }
+    ]
+  },
+  "cart": [
+    {
+      "id": "e9ef8586-831d-412a-ac8d-3913130ac21f",
+      "user_id": "b71bb687-107f-4c1f-afc9-69500d1f5923",
+      "quantity": 3,
+      "cart_items": [
+        {
+          "id": "62fde271-d153-4b25-9581-9baaf0121a44",
+          "name": "Maxx Coffee",
+          "price": 3400,
+          "image_url": "",
+          "popular": true,
+          "stars": 5.0,
+          "ratings": 400,
+          "ingredients": "milk, coffee",
+
+        }
+      ]
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "49b1599d-53b9-4a94-b406-337f8b504aaa",
+      "name": "Dazai's Restaurant",
+      "location": "Yangon",
+      "stars:": 5.0,
+      "ratings": 200,
+      "shop_img_url": "",
+      "avail_foods": [
+        {
+          "id": "d08db371-355c-4f7d-9bc3-fdc16d1f8f2c",
+          "name": "Burger",
+          "price": 2400,
+          "image_url": "",
+          "popular": false,
+          "stars": 4.3,
+          "ratings": 100,
+          "ingredients": "beef, egg"
+        },
+        {
+          "id": "62fde271-d153-4b25-9581-9baaf0121a44",
+          "name": "Maxx Coffee",
+          "price": 3400,
+          "image_url": "",
+          "popular": true,
+          "stars": 5,
+          "ratings": 400,
+          "ingredients": "milk, coffee"
+        }
+      ]
+    }
+  ]
+}

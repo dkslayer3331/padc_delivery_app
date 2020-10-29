@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rvCartItems"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:itemCount="5"
+    tools:listitem="@layout/viewholer_cart_item"/>
+
+  <TextView
+      android:id="@+id/tvLabelAddMoreFoods"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/rvCartItems"
+      android:text="Add more foods"
+      android:padding="16dp"
+      android:textColor="@color/pinkColor"/>
+
+    <TextView
+        android:id="@+id/tvLabelDeliveryInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delivery Instructions"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:layout_below="@id/tvLabelAddMoreFoods"/>
+
+    <TextView
+        android:id="@+id/tvLabelAddNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Notes +"
+        android:textColor="@color/pinkColor"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/tvLabelAddMoreFoods"/>
+
+    <TextView
+        android:id="@+id/tvLabelSubTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Subtotal"
+        android:paddingStart="16dp"
+        android:layout_below="@id/tvLabelDeliveryInstructions"
+        android:paddingTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvCartTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$34"
+        android:layout_below="@id/tvLabelAddNotes"
+        android:textStyle="bold"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/tvLabelDeliveryCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Delivery Cost"
+        android:paddingStart="16dp"
+        android:layout_below="@id/tvLabelSubTotal"
+        android:paddingTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvDeliveryCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Free"
+        android:textStyle="bold"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:layout_below="@id/tvCartTotal"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnCheckOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Check Out"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

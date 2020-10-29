@@ -4,4 +4,5 @@
     <string name="already_then_login">Already an account? Log In</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cart_item_with_name_name_and_qty">%1s x %2d</string>
 </resources>

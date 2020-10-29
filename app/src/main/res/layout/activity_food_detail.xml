@@ -104,6 +104,14 @@
             android:text="Coffees"
             android:layout_below="@id/rvPopularFood"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAllFoodOfType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            tools:itemCount="5"
+            tools:listitem="@layout/viewholder_normal_food_item"
+            android:layout_below="@id/tvDetailFoodType"/>
 
     </RelativeLayout>
 

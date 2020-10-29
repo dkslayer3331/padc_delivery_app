@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvGeneralFoodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maxx Coffee"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvGeneralFoodPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="$30" />
+
+    <TextView
+        android:id="@+id/tvGeneralFoodIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvGeneralFoodName"
+        android:layout_marginTop="8dp"
+        android:text="Coffee Beans , Milk" />
+
+    <RatingBar
+        android:id="@+id/rbIsPopular"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGeneralFoodPrice"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@id/tvIsPopular"
+        android:numStars="1"
+        android:rating="1" />
+
+    <TextView
+        android:id="@+id/tvIsPopular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvGeneralFoodPrice"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="8dp"
+        android:text="Popular"
+        android:textColor="@color/pinkColor" />
+
+</RelativeLayout>

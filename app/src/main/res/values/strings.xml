@@ -2,4 +2,6 @@
     <string name="app_name">padc_food_delivery_app</string>
     <string name="terms_and_condition_agree">By clicking sign up you agree to our Terms and Conditions</string>
     <string name="already_then_login">Already an account? Log In</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

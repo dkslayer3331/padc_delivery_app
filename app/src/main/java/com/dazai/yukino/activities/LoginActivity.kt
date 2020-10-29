@@ -20,5 +20,10 @@ class LoginActivity : AppCompatActivity() {
         tvSignUp.setOnClickListener {
             startActivity(RegisterActivity.newIntent(this))
         }
+
+        btnLogin.setOnClickListener {
+            startActivity(MainActivity.onNewIntent(this))
+        }
+
     }
 }

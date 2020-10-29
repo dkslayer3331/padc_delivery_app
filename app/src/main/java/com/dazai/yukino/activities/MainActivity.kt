@@ -1,9 +1,11 @@
-package com.dazai.yukino
+package com.dazai.yukino.activities
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import com.dazai.yukino.R
 import com.dazai.yukino.fragments.OfferFragment
 import com.dazai.yukino.fragments.ProfileFragment
 import com.dazai.yukino.fragments.RestaurantFragment
@@ -11,22 +13,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object{
+        fun onNewIntent(context : Context) = Intent(context,MainActivity::class.java)
+    }
+
     private val restaurantFragment = RestaurantFragment()
     private val profileFragment = ProfileFragment()
     private val offerFragment = OfferFragment()
 
-    val fragmentManager = supportFragmentManager
+    private val fragmentManager = supportFragmentManager
 
-    var active : Fragment = restaurantFragment
-
-
+    private var active : Fragment = restaurantFragment
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        fragmentManager.beginTransaction().add(R.id.fragmentContainer,offerFragment).hide(offerFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.fragmentContainer,profileFragment).hide(profileFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.fragmentContainer,restaurantFragment).commit()
+        
+        fragmentManager.beginTransaction().add(R.id.fragmentContainer,offerFragment,"offer").hide(offerFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.fragmentContainer,profileFragment,"profile").hide(profileFragment).commit()
+        fragmentManager.beginTransaction().add(R.id.fragmentContainer,restaurantFragment,"restaurant").commit()
 
         bottomNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId){

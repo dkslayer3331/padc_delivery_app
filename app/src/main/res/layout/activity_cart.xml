@@ -6,21 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rvCartItems"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:itemCount="5"
-    tools:listitem="@layout/viewholer_cart_item"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCartItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="5"
+        tools:listitem="@layout/viewholer_cart_item"/>
 
-  <TextView
-      android:id="@+id/tvLabelAddMoreFoods"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/rvCartItems"
-      android:text="Add more foods"
-      android:padding="16dp"
-      android:textColor="@color/pinkColor"/>
+    <TextView
+        android:id="@+id/tvLabelAddMoreFoods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rvCartItems"
+        android:text="Add more foods"
+        android:padding="16dp"
+        android:textColor="@color/pinkColor"/>
 
     <TextView
         android:id="@+id/tvLabelDeliveryInstructions"

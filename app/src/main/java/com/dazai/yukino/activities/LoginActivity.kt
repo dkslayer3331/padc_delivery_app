@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener {
-            startActivity(MainActivity.onNewIntent(this))
+            startActivity(CartActivity.onNewIntent(this))
         }
 
     }

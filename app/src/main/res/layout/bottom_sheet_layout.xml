@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:text="Track my Order"
-        android:background="@drawable/red_round_corner_background"/>
+        style="@style/roundCornerButton"/>
 
     <TextView
         android:layout_width="wrap_content"

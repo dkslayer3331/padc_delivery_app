@@ -10,7 +10,7 @@ import com.dazai.yukino.mvp.views.LoginView
 /**
  * Created by Moe Htet on 30,October,2020
  */
-object LoginPresenterImpl : AbstractBasePresenter<LoginView>(), LoginPresenter {
+class LoginPresenterImpl : AbstractBasePresenter<LoginView>(), LoginPresenter {
 
     private val deliveryModel : DeliveryModel = DeliveryModelImpl
 

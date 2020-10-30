@@ -10,7 +10,7 @@ import com.dazai.yukino.mvp.views.RestaurantView
 /**
  * Created by Moe Htet on 30,October,2020
  */
-object RestaurantPresenterImpl : AbstractBasePresenter<RestaurantView>(),RestaurantPresenter {
+class RestaurantPresenterImpl : AbstractBasePresenter<RestaurantView>(),RestaurantPresenter {
 
     private var deliveryModel : DeliveryModel = DeliveryModelImpl
 

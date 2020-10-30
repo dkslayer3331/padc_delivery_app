@@ -1,6 +1,8 @@
 package com.dazai.yukino
 
+import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.data.vos.CartVO
@@ -12,6 +14,7 @@ import com.dazai.yukino.data.vos.RestaurantVO
  */
 
 fun ImageView.loadImage(url: String) = Glide.with(this.context).load(url).into(this)
+
 
 fun Map<String, Any>?.toFoodVO(): FoodVO {
     return FoodVO(

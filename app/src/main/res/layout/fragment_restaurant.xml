@@ -125,6 +125,7 @@
         app:layout_constraintTop_toTopOf="@+id/tvLabelNewRestaurant" />
 
     <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupForDifferentLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="tvLabelPopularChoice,tvShowAllFood,tvLabelNewRestaurant,tvShowAllRst"

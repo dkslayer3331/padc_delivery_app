@@ -4,18 +4,18 @@ import androidx.lifecycle.LifecycleOwner
 import com.dazai.yukino.base.AbstractBasePresenter
 import com.dazai.yukino.data.model.DeliveryModel
 import com.dazai.yukino.data.model.DeliveryModelImpl
-import com.dazai.yukino.mvp.presenters.RestaurantPresenter
-import com.dazai.yukino.mvp.views.RestaurantView
+import com.dazai.yukino.mvp.presenters.LoginPresenter
+import com.dazai.yukino.mvp.views.LoginView
 
 /**
  * Created by Moe Htet on 30,October,2020
  */
-object RestaurantPresenterImpl : AbstractBasePresenter<RestaurantView>(),RestaurantPresenter {
+object LoginPresenterImpl : AbstractBasePresenter<LoginView>(), LoginPresenter {
 
-    private var deliveryModel : DeliveryModel = DeliveryModelImpl
+    private val deliveryModel : DeliveryModel = DeliveryModelImpl
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        mView?.showRelevantView(deliveryModel.getMainScreenMode())
+        deliveryModel.setupRemoteConfigWithDefaultValues()
+        deliveryModel.fetchRemoteConfigs()
     }
-
 }

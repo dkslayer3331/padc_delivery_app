@@ -53,7 +53,8 @@ class RestaurantFragment : Fragment(), RestaurantView{
         }
     }
 
-    override fun showError(message: String) {
+    override fun showErrorMessage(message: String) {
 
     }
+
 }

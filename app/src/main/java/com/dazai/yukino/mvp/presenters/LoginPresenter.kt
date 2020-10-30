@@ -9,4 +9,5 @@ import com.dazai.yukino.mvp.views.LoginView
  */
 interface LoginPresenter : BasePresenter<LoginView> {
     fun onUiReady(lifecycleOwner: LifecycleOwner)
+    fun onLoginIn(mail : String,password : String)
 }

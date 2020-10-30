@@ -12,7 +12,7 @@ import com.dazai.yukino.mvp.presenters.impls.LoginPresenterImpl
 import com.dazai.yukino.mvp.views.LoginView
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(),LoginView {
+class LoginActivity : BaseActivity(),LoginView {
 
     companion object{
         fun newIntent(context : Context)  = Intent(context,LoginActivity::class.java)
@@ -38,12 +38,14 @@ class LoginActivity : AppCompatActivity(),LoginView {
         }
 
         btnLogin.setOnClickListener {
-            startActivity(MainActivity.onNewIntent(this))
+            loginPresenter.onLoginIn(etMail.text.toString(),etPassword.text.toString())
         }
 
     }
 
-    override fun showError(message: String) {
-
+    override fun navigateToMain() {
+        startActivity(MainActivity.onNewIntent(this))
     }
+
+
 }

@@ -57,4 +57,5 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
     }
 
     override fun getRestaurantById(id: String): RestaurantVO = mDb.restaurantDao().getRestaurantById(id)
+
 }

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -52,14 +55,14 @@
             android:numStars="1"
             android:rating="1"
             style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@id/tvDetailRestName"/>
 
         <TextView
             android:id="@+id/tvDetailFoodStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="16sp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="8dp"
             android:text="5.0"
@@ -67,9 +70,10 @@
             android:layout_toRightOf="@id/rbDetail"/>
 
         <TextView
+            android:id="@+id/tvDetailRestRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="16sp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="8dp"
             android:text="(300 ratings)"
@@ -110,9 +114,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             tools:itemCount="5"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/viewholder_normal_food_item"
             android:layout_below="@id/tvDetailFoodType"/>
 
     </RelativeLayout>
 
 </LinearLayout>
+</ScrollView>

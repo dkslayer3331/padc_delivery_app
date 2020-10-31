@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.dazai.yukino.R
+import com.dazai.yukino.activities.FoodDetailActivity
 import com.dazai.yukino.adapters.FoodTypeAdapter
 import com.dazai.yukino.adapters.RestaurantAdapter
 import com.dazai.yukino.data.vos.FoodTypeVO
@@ -35,7 +36,7 @@ class RestaurantFragment : Fragment(), RestaurantView{
     }
 
     private fun setupRestaurantAdapter(){
-        restaurantAdapter = RestaurantAdapter()
+        restaurantAdapter = RestaurantAdapter(delegate = this)
         rvRestaurants.adapter = restaurantAdapter
     }
 
@@ -100,6 +101,11 @@ class RestaurantFragment : Fragment(), RestaurantView{
 
     override fun showErrorMessage(message: String) {
 
+    }
+
+    override fun onTap(id: String) {
+        val intent = FoodDetailActivity.onNewIntent(requireContext(),id)
+        startActivity(intent)
     }
 
 }

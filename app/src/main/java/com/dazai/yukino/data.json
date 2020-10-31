@@ -32,7 +32,7 @@
       "id": "49b1599d-53b9-4a94-b406-337f8b504aaa",
       "name": "Dazai's Restaurant",
       "location": "Yangon",
-      "stars:": 5.0,
+      "stars": 5.0,
       "ratings": 200,
       "shop_img_url": "",
       "avail_foods": [
@@ -62,7 +62,7 @@
       "id": "337f8b504aaa-53b9-4a94-b406-53b9",
       "name": "Thai Restaurant",
       "location": "Yangon",
-      "stars:": 5.0,
+      "stars": 5.0,
       "ratings": 300,
       "shop_img_url": "",
       "avail_foods": [
@@ -89,10 +89,10 @@
       ]
     },
     {
-      "id": "337f8b504aaa-53b9-4a94-b406-53b9",
+      "id": "55668778-53b9-4a94-b406-53b9",
       "name": "Italian Restaurant",
       "location": "Yangon",
-      "stars:": 5.0,
+      "stars": 5.0,
       "ratings": 300,
       "shop_img_url": "",
       "avail_foods": [

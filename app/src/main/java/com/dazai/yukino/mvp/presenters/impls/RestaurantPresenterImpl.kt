@@ -26,6 +26,14 @@ class RestaurantPresenterImpl : AbstractBasePresenter<RestaurantView>(),Restaura
             mView?.showErrorMessage(it)
         })
 
+        deliveryModel.getRestaurants(onSuccess = {
+            it.observe(lifecycleOwner, Observer {
+                mView?.showRestaurants(it)
+            })
+        },onFail = {
+            mView?.showErrorMessage(it)
+        })
+
     }
 
 }

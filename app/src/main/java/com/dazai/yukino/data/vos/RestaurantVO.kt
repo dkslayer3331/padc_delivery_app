@@ -1,7 +1,13 @@
 package com.dazai.yukino.data.vos
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.dazai.yukino.persistance.typeconverters.FoodVoListTypeConverter
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "restaurants")
+@TypeConverters(FoodVoListTypeConverter::class)
 data class RestaurantVO(
 
 	@SerializedName("stars")
@@ -16,6 +22,7 @@ data class RestaurantVO(
 	@SerializedName("location")
 	var location: String = "",
 
+	@PrimaryKey
 	@SerializedName("id")
 	var id: String = "",
 

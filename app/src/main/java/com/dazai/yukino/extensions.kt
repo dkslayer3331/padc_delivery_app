@@ -1,5 +1,6 @@
 package com.dazai.yukino
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -26,13 +27,14 @@ fun ImageView.loadAsCircleImage(url: String) = Glide.with(this.context)
 fun Map<String, Any>?.toFoodVO(): FoodVO {
     return FoodVO(
         id = this?.get("id") as String,
-        price = this?.get("price") as Int,
+        price =( this?.get("price") as Long).toInt(),
         name = this?.get("name") as String,
         imageUrl = this?.get("image_url") as String,
         ingredients = this?.get("ingredients") as String,
         popular = this?.get("popular") as Boolean,
-        ratings = this?.get("ratings") as Int,
-        stars = this?.get("stars") as Double
+        ratings = (this?.get("ratings") as Long).toInt(),
+        stars = if(this?.get("stars") is Double) (this?.get("stars") as Double) else
+            (this?.get("stars") as Long).toDouble()
     )
 }
 
@@ -62,16 +64,17 @@ fun Map<String, Any>?.toCartVO() : CartVO{
 
 fun Map<String, Any>?.toRestaurantVO() : RestaurantVO{
     val tempAvailFoods = mutableListOf<FoodVO>()
-    val availFoods = this?.get("avail_foods") as Array<Map<String,Any>>?
+    val availFoods = this?.get("avail_foods") as ArrayList<Map<String,Any>>
     availFoods?.let {
         it.forEach { food ->
             tempAvailFoods.add(food.toFoodVO())
         }
     }
     return RestaurantVO(
-       stars = this?.get("stars") as Double,
+       stars = if (this?.get("stars") is Double) this?.get("stars") as Double else
+           (this?.get("stars") as Long).toDouble(),
         id = this?.get("id") as String,
-        ratings = this?.get("ratings") as Int,
+        ratings = (this?.get("ratings") as Long).toInt(),
         name = this?.get("name") as String,
         availFoods = tempAvailFoods,
         location = this?.get("location") as String,

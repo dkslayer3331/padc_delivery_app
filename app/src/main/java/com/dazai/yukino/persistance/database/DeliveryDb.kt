@@ -6,13 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.dazai.yukino.data.vos.FoodTypeVO
+import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.persistance.daos.FoodTypesDao
+import com.dazai.yukino.persistance.daos.RestaurantDao
 
 /**
  * Created by Moe Htet on 01,November,2020
  */
 //todo : entities and daos
-@Database(entities = [FoodTypeVO::class], version = 8, exportSchema = false)
+@Database(entities = [FoodTypeVO::class,RestaurantVO::class], version = 9, exportSchema = false)
 //@TypeConverters()
 abstract class DeliveryDb : RoomDatabase() {
     companion object {
@@ -38,5 +40,6 @@ abstract class DeliveryDb : RoomDatabase() {
     //todo : daos here
     abstract fun foodTypeDao() : FoodTypesDao
 
+    abstract fun restaurantDao() : RestaurantDao
 
 }

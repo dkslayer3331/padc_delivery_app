@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.dazai.yukino.R
 import com.dazai.yukino.adapters.FoodTypeAdapter
+import com.dazai.yukino.adapters.RestaurantAdapter
 import com.dazai.yukino.data.vos.FoodTypeVO
+import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.mvp.presenters.RestaurantPresenter
 import com.dazai.yukino.mvp.presenters.impls.RestaurantPresenterImpl
 import com.dazai.yukino.mvp.views.RestaurantView
@@ -25,9 +27,16 @@ class RestaurantFragment : Fragment(), RestaurantView{
 
     lateinit var restaurantPresenter: RestaurantPresenter
 
-    private fun setupAdapter(){
+    private lateinit var restaurantAdapter: RestaurantAdapter
+
+    private fun setupFoodTypeAdapter(){
         foodTypeAdapter = FoodTypeAdapter()
         rvFoodType.adapter = foodTypeAdapter
+    }
+
+    private fun setupRestaurantAdapter(){
+        restaurantAdapter = RestaurantAdapter()
+        rvRestaurants.adapter = restaurantAdapter
     }
 
     private fun setupPresenter(){
@@ -43,9 +52,14 @@ class RestaurantFragment : Fragment(), RestaurantView{
         return inflater.inflate(R.layout.fragment_restaurant, container, false)
     }
 
+    private fun setupAllAdapters(){
+        setupFoodTypeAdapter()
+        setupRestaurantAdapter()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        setupAdapter()
+        setupAllAdapters()
 
         setupPresenter()
 
@@ -67,6 +81,11 @@ class RestaurantFragment : Fragment(), RestaurantView{
 
     override fun showShowFoodTypes(foodTypes: List<FoodTypeVO>) {
         foodTypeAdapter.setNewData(foodTypes.toMutableList())
+    }
+
+    override fun showRestaurants(restaurants: List<RestaurantVO>) {
+        Log.d("restsize",restaurants.size.toString())
+        restaurantAdapter.setNewData(restaurants.toMutableList())
     }
 
     override fun showErrorMessage(message: String) {

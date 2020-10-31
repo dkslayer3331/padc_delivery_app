@@ -30,7 +30,13 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
         onSuccess: (LiveData<List<RestaurantVO>>) -> Unit,
         onFail: (String) -> Unit
     ) {
-
+        deliveryApi.getRestaurants(onSuccess = {
+            mDb.restaurantDao().deleteAll()
+            mDb.restaurantDao().addAll(it)
+            onSuccess(mDb.restaurantDao().getAll())
+        },onFail = {
+            onFail(it)
+        })
     }
 
     override fun getRestaurantDetail(id: String) {

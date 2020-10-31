@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.data.vos.CartVO
 import com.dazai.yukino.data.vos.FoodVO
@@ -13,9 +14,16 @@ import com.dazai.yukino.data.vos.RestaurantVO
  * Created by Moe Htet on 27,October,2020
  */
 
-fun ImageView.loadImage(url: String) = Glide.with(this.context).load(url).into(this)
+fun ImageView.loadImage(url: String) = Glide.with(this.context)
+    .load(url)
+    .placeholder(R.drawable.ic_launcher_background)
+    .into(this)
 
-fun ImageView.loadAsCircleImage(url: String) = Glide.with(this.context).load(url).circleCrop().into(this)
+fun ImageView.loadAsCircleImage(url: String) = Glide.with(this.context)
+    .load(url)
+    .apply(RequestOptions().circleCrop())
+    .placeholder(R.drawable.ic_launcher_background)
+    .into(this)
 
 
 fun Map<String, Any>?.toFoodVO(): FoodVO {

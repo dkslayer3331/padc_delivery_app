@@ -55,10 +55,10 @@ class ProfileFragment : Fragment(),ProfileView {
 
     override fun showUserProfile(firebaseUser: FirebaseUser) {
         etProfileMail.setText(firebaseUser.email)
-        firebaseUser.photoUrl?.let {
-            if(it.toString().isNotEmpty())
-            ivProfile.loadAsCircleImage(it.toString())
-        }
+        ivProfile.loadAsCircleImage("https://i.picsum.photos/id/1020/200/200.jpg?hmac=c5bRHY4v2MbtbHRV_2DH_1-btEUmu11m_KDHiNz0IeE")
+//        firebaseUser.photoUrl?.let {
+//            ivProfile.loadAsCircleImage(it.toString())
+//        }
     }
 
     override fun showErrorMessage(message: String) {

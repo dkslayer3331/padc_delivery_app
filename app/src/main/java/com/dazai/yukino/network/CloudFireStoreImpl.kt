@@ -1,9 +1,12 @@
 package com.dazai.yukino.network
 
+import android.content.Context
 import com.dazai.yukino.NO_INTERNET_CONNECTION
+import com.dazai.yukino.data.model.BaseModel
 import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.data.vos.FoodTypeVO
 import com.dazai.yukino.data.vos.RestaurantVO
+import com.dazai.yukino.persistance.database.DeliveryDb
 import com.dazai.yukino.toFoodTypeVO
 import com.dazai.yukino.toRestaurantVO
 import com.google.firebase.firestore.ktx.firestore
@@ -12,7 +15,7 @@ import com.google.firebase.ktx.Firebase
 /**
  * Created by Moe Htet on 28,October,2020
  */
-object CloudFireStoreImpl : DeliveryApi {
+object CloudFireStoreImpl : DeliveryApi , BaseModel(){
 
     private val fireStore = Firebase.firestore
 

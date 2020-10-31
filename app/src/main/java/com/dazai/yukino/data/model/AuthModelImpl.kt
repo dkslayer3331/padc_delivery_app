@@ -40,6 +40,6 @@ object AuthModelImpl : AuthModel {
         onSuccess: (FirebaseUser) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        authModel.updateProfile(mail, changeRequest,onSuccess, onFailure)
+        authModel.updateProfile(mail, changeRequest, onSuccess, onFailure)
     }
 }

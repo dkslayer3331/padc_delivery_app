@@ -49,6 +49,7 @@
             android:layout_margin="8dp"
             android:src="@drawable/ic_launcher_background" />
         <ImageButton
+            android:id="@+id/btnUploadProfileImg"
             android:layout_alignParentEnd="true"
             android:layout_width="35dp"
             android:layout_height="35dp"

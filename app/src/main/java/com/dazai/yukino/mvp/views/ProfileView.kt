@@ -8,4 +8,5 @@ import com.google.firebase.auth.FirebaseUser
  */
 interface ProfileView : BaseView {
     fun showUserProfile(firebaseUser : FirebaseUser)
+    fun showSuccessUpdateMessage(message : String)
 }

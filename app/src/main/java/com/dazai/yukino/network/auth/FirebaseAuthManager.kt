@@ -65,9 +65,9 @@ object FirebaseAuthManager : AuthManager {
 
        firebaseAuth.currentUser?.updateProfile(changeRequest)?.addOnCompleteListener { task ->
                if (task.isSuccessful) {
-                   Log.d("profileUpdate", "User profile updated.")
+
                }
-           else task.exception?.localizedMessage?.let { Log.d("profileUpdate",it) }
+           else task.exception?.localizedMessage?.let { onFailure(it) }
            }
 
     }

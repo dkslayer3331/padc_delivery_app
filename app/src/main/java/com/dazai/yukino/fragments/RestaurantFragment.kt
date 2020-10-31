@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.dazai.yukino.R
+import com.dazai.yukino.adapters.FoodTypeAdapter
+import com.dazai.yukino.data.vos.FoodTypeVO
 import com.dazai.yukino.mvp.presenters.RestaurantPresenter
 import com.dazai.yukino.mvp.presenters.impls.RestaurantPresenterImpl
 import com.dazai.yukino.mvp.views.RestaurantView
@@ -19,7 +21,14 @@ class RestaurantFragment : Fragment(), RestaurantView{
         super.onCreate(savedInstanceState)
     }
 
+    lateinit var foodTypeAdapter: FoodTypeAdapter
+
     lateinit var restaurantPresenter: RestaurantPresenter
+
+    private fun setupAdapter(){
+        foodTypeAdapter = FoodTypeAdapter()
+        rvFoodType.adapter = foodTypeAdapter
+    }
 
     private fun setupPresenter(){
         restaurantPresenter = ViewModelProviders.of(this).get(RestaurantPresenterImpl::class.java)
@@ -35,6 +44,9 @@ class RestaurantFragment : Fragment(), RestaurantView{
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        setupAdapter()
+
         setupPresenter()
 
         restaurantPresenter.onUiReady(this)
@@ -51,6 +63,10 @@ class RestaurantFragment : Fragment(), RestaurantView{
             2 -> groupForDifferentLayout.visibility = View.VISIBLE
             else -> Log.d("WrongViewType","unknown")
         }
+    }
+
+    override fun showShowFoodTypes(foodTypes: List<FoodTypeVO>) {
+        foodTypeAdapter.setNewData(foodTypes.toMutableList())
     }
 
     override fun showErrorMessage(message: String) {

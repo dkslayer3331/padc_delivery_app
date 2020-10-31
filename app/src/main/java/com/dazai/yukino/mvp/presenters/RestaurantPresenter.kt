@@ -2,6 +2,7 @@ package com.dazai.yukino.mvp.presenters
 
 import androidx.lifecycle.LifecycleOwner
 import com.dazai.yukino.base.BasePresenter
+import com.dazai.yukino.data.vos.FoodTypeVO
 import com.dazai.yukino.mvp.views.RestaurantView
 
 /**

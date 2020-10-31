@@ -1,6 +1,7 @@
 package com.dazai.yukino.app
 
 import android.app.Application
+import com.dazai.yukino.data.model.DeliveryModelImpl
 import com.dazai.yukino.network.CloudFireStoreImpl
 
 /**
@@ -10,7 +11,7 @@ class DeliveryApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        CloudFireStoreImpl.initDb(this)
+        DeliveryModelImpl.initDb(this)
 
     }
 

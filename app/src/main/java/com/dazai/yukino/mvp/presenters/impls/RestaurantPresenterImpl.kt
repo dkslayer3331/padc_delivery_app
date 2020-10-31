@@ -1,6 +1,7 @@
 package com.dazai.yukino.mvp.presenters.impls
 
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import com.dazai.yukino.base.AbstractBasePresenter
 import com.dazai.yukino.data.model.DeliveryModel
 import com.dazai.yukino.data.model.DeliveryModelImpl
@@ -16,6 +17,15 @@ class RestaurantPresenterImpl : AbstractBasePresenter<RestaurantView>(),Restaura
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
         mView?.showRelevantView(deliveryModel.getMainScreenMode())
+
+        deliveryModel.getFoodTypes(onSuccess = {
+            it.observe(lifecycleOwner, Observer {
+                mView?.showShowFoodTypes(it)
+            })
+        },onFail = {
+            mView?.showErrorMessage(it)
+        })
+
     }
 
 }

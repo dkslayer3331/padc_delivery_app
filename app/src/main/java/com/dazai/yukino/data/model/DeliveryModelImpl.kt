@@ -10,7 +10,7 @@ import com.dazai.yukino.network.remoteConfig.FirebaseRemoteConfig
 /**
  * Created by Moe Htet on 30,October,2020
  */
-object DeliveryModelImpl : DeliveryModel {
+object DeliveryModelImpl : DeliveryModel, BaseModel() {
 
     private var remoteConfig = FirebaseRemoteConfig
 
@@ -42,7 +42,9 @@ object DeliveryModelImpl : DeliveryModel {
         onFail: (String) -> Unit
     ) {
         deliveryApi.getFoodTypes(onSuccess = {
-
+            mDb.foodTypeDao().deleteAll()
+            mDb.foodTypeDao().addAll(it)
+            onSuccess(mDb.foodTypeDao().getAll())
         },onFail = {
             onFail(it)
         })

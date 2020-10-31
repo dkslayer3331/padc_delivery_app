@@ -7,4 +7,5 @@ import com.dazai.yukino.base.BaseView
  */
 interface RegisterView : BaseView {
     fun navigateToLogin()
+
 }

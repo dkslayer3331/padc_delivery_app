@@ -2,6 +2,8 @@ package com.dazai.yukino.data.model
 
 import com.dazai.yukino.network.auth.AuthManager
 import com.dazai.yukino.network.auth.FirebaseAuthManager
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 
 /**
@@ -28,5 +30,16 @@ object AuthModelImpl : AuthModel {
         onFailure: (String) -> Unit
     ) {
         authModel.register(email, password, userName, onSuccess, onFailure)
+    }
+
+    override fun getUserProfile(): FirebaseUser?  = authModel.getUserProfile()
+
+    override fun updateProfile(
+        mail: String,
+        changeRequest: UserProfileChangeRequest,
+        onSuccess: (FirebaseUser) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        authModel.updateProfile(mail, changeRequest,onSuccess, onFailure)
     }
 }

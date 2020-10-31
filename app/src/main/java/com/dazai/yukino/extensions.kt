@@ -15,6 +15,8 @@ import com.dazai.yukino.data.vos.RestaurantVO
 
 fun ImageView.loadImage(url: String) = Glide.with(this.context).load(url).into(this)
 
+fun ImageView.loadAsCircleImage(url: String) = Glide.with(this.context).load(url).circleCrop().into(this)
+
 
 fun Map<String, Any>?.toFoodVO(): FoodVO {
     return FoodVO(

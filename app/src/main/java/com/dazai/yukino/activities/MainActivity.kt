@@ -9,6 +9,8 @@ import com.dazai.yukino.R
 import com.dazai.yukino.fragments.OfferFragment
 import com.dazai.yukino.fragments.ProfileFragment
 import com.dazai.yukino.fragments.RestaurantFragment
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     companion object{
         fun onNewIntent(context : Context) = Intent(context,MainActivity::class.java)
     }
+
+    val ff = Firebase.auth.currentUser
 
     private val restaurantFragment = RestaurantFragment()
     private val profileFragment = ProfileFragment()

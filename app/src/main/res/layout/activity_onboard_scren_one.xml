@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".activities.OnboardScrenOne">
+
+    <ImageView
+        android:src="@drawable/ic_launcher_background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:scaleType="centerCrop"/>
+
+
+        <LinearLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-16dp"
+            android:background="@drawable/getting_started_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:text="Happy Meals"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:text="Discover best foods from over 1,000 restaurants" />
+
+            <Button
+                android:id="@+id/btnGettingStarted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get Started"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/white_round_corner_button"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+</LinearLayout>

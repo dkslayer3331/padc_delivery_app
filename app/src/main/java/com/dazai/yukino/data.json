@@ -89,5 +89,27 @@
         }
       ]
     }
+  ],
+  "food_types": [
+    {
+      "name": "Burgers",
+      "img_url": "",
+      "id": "0"
+    },
+    {
+      "name": "Coffees",
+      "img_url": "",
+      "id": "1"
+    },
+    {
+      "name": "Asian",
+      "img_url": "",
+      "id": "2"
+    },
+    {
+      "name": "Thai",
+      "img_url": "",
+      "id": "3"
+    }
   ]
 }

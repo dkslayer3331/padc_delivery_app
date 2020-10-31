@@ -26,9 +26,6 @@ data class FoodVO(
 	var stars: Double = 0.0,
 
 	@SerializedName("popular")
-	var popular: Boolean = false,
-
-	@SerializedName("type")
-	var type : String = ""
+	var popular: Boolean = false
 
 )

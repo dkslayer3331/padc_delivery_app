@@ -17,7 +17,7 @@ data class RestaurantVO(
 	var location: String = "",
 
 	@SerializedName("id")
-	var id: String,
+	var id: String = "",
 
 	@SerializedName("shop_img_url")
 	var shopImgUrl: String = "",

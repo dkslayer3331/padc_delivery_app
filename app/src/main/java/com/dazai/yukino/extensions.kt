@@ -5,10 +5,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.dazai.yukino.data.vos.CartItemWrapper
-import com.dazai.yukino.data.vos.CartVO
-import com.dazai.yukino.data.vos.FoodVO
-import com.dazai.yukino.data.vos.RestaurantVO
+import com.dazai.yukino.data.vos.*
 
 /**
  * Created by Moe Htet on 27,October,2020
@@ -35,8 +32,15 @@ fun Map<String, Any>?.toFoodVO(): FoodVO {
         ingredients = this?.get("ingredients") as String,
         popular = this?.get("popular") as Boolean,
         ratings = this?.get("ratings") as Int,
-        stars = this?.get("stars") as Double,
-        type = this?.get("type") as String
+        stars = this?.get("stars") as Double
+    )
+}
+
+fun Map<String, Any>?.toFoodTypeVO() : FoodTypeVO{
+    return FoodTypeVO(
+        id = this?.get("id") as String,
+        name = this?.get("name") as String,
+        imgUrl = this?.get("img_url") as String
     )
 }
 
@@ -72,19 +76,5 @@ fun Map<String, Any>?.toRestaurantVO() : RestaurantVO{
         availFoods = tempAvailFoods,
         location = this?.get("location") as String,
         shopImgUrl = this?.get("shop_img_url") as String
-    )
-}
-
-fun FoodVO.toMap() : Map<String,Any>{
-    return hashMapOf(
-        "id" to this.id,
-        "price" to this.price,
-        "image_url" to this.imageUrl,
-        "ratings" to this.ratings,
-        "name" to this.name,
-        "ingredients" to this.ingredients,
-        "stars" to this.stars,
-        "popular" to this.popular,
-        "type" to this.type
     )
 }

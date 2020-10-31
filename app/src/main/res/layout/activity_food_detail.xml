@@ -33,7 +33,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tvDetailFoodTypeName"
+            android:id="@+id/tvDetailRestName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"
@@ -53,7 +53,7 @@
             android:rating="1"
             style="@style/Widget.AppCompat.RatingBar.Small"
             android:layout_marginTop="8dp"
-            android:layout_below="@id/tvDetailFoodTypeName"/>
+            android:layout_below="@id/tvDetailRestName"/>
 
         <TextView
             android:id="@+id/tvDetailFoodStar"
@@ -63,7 +63,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="8dp"
             android:text="5.0"
-            android:layout_below="@id/tvDetailFoodTypeName"
+            android:layout_below="@id/tvDetailRestName"
             android:layout_toRightOf="@id/rbDetail"/>
 
         <TextView
@@ -73,7 +73,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="8dp"
             android:text="(300 ratings)"
-            android:layout_below="@id/tvDetailFoodTypeName"
+            android:layout_below="@id/tvDetailRestName"
             android:layout_toRightOf="@id/tvDetailFoodStar"/>
 
         <TextView

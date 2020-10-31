@@ -24,4 +24,6 @@ interface DeliveryModel {
 
     fun getFoodTypes(onSuccess : (LiveData<List<FoodTypeVO>>) -> Unit, onFail : (String) -> Unit)
 
+    fun getRestaurantById(id : String) : RestaurantVO
+
 }

@@ -72,9 +72,19 @@ class RestaurantFragment : Fragment(), RestaurantView{
     }
 
     override fun showRelevantView(type: Int) {
+        restaurantAdapter.setViewType(type)
+        rvRestaurants.adapter = restaurantAdapter
+        foodTypeAdapter.setViewType(type)
+        rvFoodType.adapter = foodTypeAdapter
         when(type){
-            1 -> groupForDifferentLayout.visibility = View.GONE
-            2 -> groupForDifferentLayout.visibility = View.VISIBLE
+            1 -> {
+                groupForDifferentLayout.visibility = View.GONE
+                groupAppBar.visibility = View.VISIBLE
+            }
+            2 -> {
+                groupForDifferentLayout.visibility = View.VISIBLE
+                groupAppBar.visibility = View.GONE
+            }
             else -> Log.d("WrongViewType","unknown")
         }
     }

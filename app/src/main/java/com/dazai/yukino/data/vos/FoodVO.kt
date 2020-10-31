@@ -1,7 +1,10 @@
 package com.dazai.yukino.data.vos
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "foods")
 data class FoodVO(
 
 	@SerializedName("price")
@@ -19,6 +22,7 @@ data class FoodVO(
 	@SerializedName("ingredients")
 	var ingredients: String = "",
 
+	@PrimaryKey
 	@SerializedName("id")
 	var id: String = "",
 

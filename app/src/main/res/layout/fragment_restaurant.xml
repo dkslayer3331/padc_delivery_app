@@ -132,8 +132,16 @@
         android:id="@+id/groupForDifferentLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tvLabelPopularChoice,tvShowAllFood,tvLabelNewRestaurant,tvShowAllRst"
+        app:constraint_referenced_ids="tvLabelPopularChoice,tvShowAllFood,
+        tvLabelNewRestaurant,tvShowAllRst"
         android:visibility="gone"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupAppBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvLabelCurrentLocation,tvLabelDelivering,
+        ivDownArrow"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

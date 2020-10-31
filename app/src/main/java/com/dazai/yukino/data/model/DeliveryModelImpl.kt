@@ -55,4 +55,6 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
             onFail(it)
         })
     }
+
+    override fun getRestaurantById(id: String): RestaurantVO = mDb.restaurantDao().getRestaurantById(id)
 }

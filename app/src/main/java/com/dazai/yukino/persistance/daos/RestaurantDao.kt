@@ -23,4 +23,7 @@ interface RestaurantDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addAll(list : List<RestaurantVO>)
 
+    @Query("select * from restaurants where id = :id")
+    fun getRestaurantById(id : String) : RestaurantVO
+
 }

@@ -32,4 +32,8 @@ interface DeliveryModel {
 
     fun clearCart(ids : List<String>)
 
+    fun onAdd(cartItemWrapper: CartItemWrapper)
+
+    fun onReduce(cartItemWrapper: CartItemWrapper)
+
 }

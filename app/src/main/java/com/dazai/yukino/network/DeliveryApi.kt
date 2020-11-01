@@ -11,4 +11,6 @@ interface DeliveryApi {
     fun getCartItems(onSuccess: (List<CartItemWrapper>) -> Unit, onFail: (String) -> Unit)
     fun addToCart(foodVO: FoodVO,onSuccess: () -> Unit, onFail: (String) -> Unit)
     fun clearCart(ids : List<String>)
+    fun increaseQty(cartItemWrapper: CartItemWrapper)
+    fun redueceQty(cartItemWrapper: CartItemWrapper)
 }

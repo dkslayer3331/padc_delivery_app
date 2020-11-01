@@ -108,4 +108,45 @@ object CloudFireStoreImpl : DeliveryApi , BaseModel(){
         }
     }
 
+    override fun increaseQty(cartItemWrapper: CartItemWrapper) {
+        val cartItemWrapper = cartItemWrapper
+        cartItemWrapper.quantity+=1
+
+        val data = hashMapOf(
+            "food" to cartItemWrapper.food.toHashMap(),
+            "quantity" to cartItemWrapper.quantity
+        )
+
+        fireStore.collection("cart").document(cartItemWrapper.food.id)
+            .set(data)
+            .addOnSuccessListener {
+                Log.d("increment","completed")
+            }
+            .addOnFailureListener {
+            }
+    }
+
+    override fun redueceQty(cartItemWrapper: CartItemWrapper) {
+            if(cartItemWrapper.quantity == 1){
+                fireStore.collection("cart").document(cartItemWrapper.food.id).delete()
+            }
+            else{
+               val cartItemWrapper = cartItemWrapper
+                cartItemWrapper.quantity -= 1
+
+                val data = hashMapOf(
+                    "food" to cartItemWrapper.food.toHashMap(),
+                    "quantity" to cartItemWrapper.quantity
+                )
+
+                fireStore.collection("cart").document(cartItemWrapper.food.id)
+                    .set(data)
+                    .addOnSuccessListener {
+                        Log.d("increment","completed")
+                    }
+                    .addOnFailureListener {
+                    }
+            }
+    }
+
 }

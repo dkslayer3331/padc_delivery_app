@@ -3,6 +3,7 @@ package com.dazai.yukino.mvp.presenters.impls
 import com.dazai.yukino.base.AbstractBasePresenter
 import com.dazai.yukino.data.model.DeliveryModel
 import com.dazai.yukino.data.model.DeliveryModelImpl
+import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.mvp.presenters.CartPresenter
 import com.dazai.yukino.mvp.views.CartView
 
@@ -32,5 +33,13 @@ class CartPresenterImpl : AbstractBasePresenter<CartView>(), CartPresenter {
 
     override fun onCartClear(ids: List<String>) {
         model.clearCart(ids)
+    }
+
+    override fun onAdd(cartItemWrapper: CartItemWrapper, qty: Int) {
+        model.onAdd(cartItemWrapper)
+    }
+
+    override fun onReduce(cartItemWrapper: CartItemWrapper, qty: Int) {
+        model.onReduce(cartItemWrapper)
     }
 }

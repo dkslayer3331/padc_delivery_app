@@ -28,7 +28,7 @@ class CartActivity : AppCompatActivity() , CartView{
     lateinit var cartPresenter: CartPresenter
 
     private fun setupAdapter(){
-        cartAdapter = CartAdapter()
+        cartAdapter = CartAdapter(cartPresenter)
         rvCartItems.adapter = cartAdapter
     }
 
@@ -41,18 +41,16 @@ class CartActivity : AppCompatActivity() , CartView{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        setupAdapter()
-
         setupPresenter()
+
+        setupAdapter()
 
         cartPresenter.onUiReady()
 
         btnCheckOut.setOnClickListener {
+            cartPresenter.onCartClear(cartAdapter.mData.map { it.food.id })
         val modalBottomSheet = ModalBottomSheet()
             modalBottomSheet.show(supportFragmentManager,"MODAL_SHEET")
-            modalBottomSheet.btnTrackOrder.setOnClickListener {
-                cartPresenter.onCartClear(cartAdapter.mData.map { it.food.id })
-            }
         }
 
     }
@@ -66,7 +64,6 @@ class CartActivity : AppCompatActivity() , CartView{
     override fun showEmptyCartView() {
         cartView.visibility = View.GONE
         emptyView.visibility = View.VISIBLE
-   //  val gg =  cartAdapter.mData.map { it.food.id }
     }
 
     override fun showSubTotal(total: Long) {

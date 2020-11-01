@@ -72,4 +72,12 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
         deliveryApi.clearCart(ids)
     }
 
+    override fun onAdd(cartItemWrapper: CartItemWrapper) {
+        deliveryApi.increaseQty(cartItemWrapper)
+    }
+
+    override fun onReduce(cartItemWrapper: CartItemWrapper) {
+        deliveryApi.redueceQty(cartItemWrapper)
+    }
+
 }

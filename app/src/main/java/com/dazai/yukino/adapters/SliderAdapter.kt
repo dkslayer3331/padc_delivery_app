@@ -22,7 +22,7 @@ class SliderAdapter(val data : List<SliderModel>) : SliderViewAdapter<SliderView
     override fun getCount(): Int = data.size
 
     override fun onBindViewHolder(viewHolder: SliderViewHolder?, position: Int) {
-        viewHolder?.banner?.loadImage(data.get(position).imgUrl)
+        viewHolder?.banner?.loadImage(data[position].imgUrl)
         viewHolder?.title?.text = data[position].title
         viewHolder?.desc?.text = data[position].desc
     }

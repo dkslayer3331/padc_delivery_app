@@ -20,7 +20,10 @@
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/sliderView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
+        app:sliderIndicatorEnabled="true"
+        app:sliderIndicatorSelectedColor="@color/pinkColor"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
         android:layout_below="@id/tvLogin"/>
 
     <Button

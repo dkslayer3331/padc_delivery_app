@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.dazai.yukino.R
@@ -60,6 +61,11 @@ class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
 
         restaurantId?.let { detailPresenter.onUiReady(it) }
 
+        btnViewCart.setOnClickListener {
+            val intent = Intent(this,CartActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun showDetail(restaurantVO: RestaurantVO) {
@@ -80,6 +86,10 @@ class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
     override fun showSuccessAddToCart() {
         Log.d("success","add to cart")
         Snackbar.make(window.decorView,"Added To Cart",Snackbar.LENGTH_SHORT).show()
+    }
+
+    override fun showViewCartBtn() {
+        if(btnViewCart.visibility == View.GONE) btnViewCart.visibility = View.VISIBLE
     }
 
     override fun showErrorMessage(message: String) {

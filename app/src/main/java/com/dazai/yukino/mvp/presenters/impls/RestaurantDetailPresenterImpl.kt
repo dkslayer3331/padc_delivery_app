@@ -26,6 +26,7 @@ class RestaurantDetailPresenterImpl : AbstractBasePresenter<RestaurantDetailView
     override fun onTapAddToCart(foodVO: FoodVO) {
         model.addToCart(foodVO,onSuccess = {
             mView?.showSuccessAddToCart()
+            mView?.showViewCartBtn()
         },onFail = {
             mView?.showErrorMessage(it)
         })

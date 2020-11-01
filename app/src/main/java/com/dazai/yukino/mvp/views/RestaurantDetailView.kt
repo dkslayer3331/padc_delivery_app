@@ -13,4 +13,5 @@ interface RestaurantDetailView : BaseView , FoodTapDelegate{
     fun showPopularFoods(list : List<FoodVO>)
     fun showAllFoods(list : List<FoodVO>)
     fun showSuccessAddToCart()
+    fun showViewCartBtn()
 }

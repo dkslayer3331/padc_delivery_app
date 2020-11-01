@@ -1,6 +1,7 @@
 package com.dazai.yukino.data.model
 
 import androidx.lifecycle.LiveData
+import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.data.vos.FoodTypeVO
 import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
@@ -40,10 +41,6 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
         })
     }
 
-    override fun getRestaurantDetail(id: String) {
-
-    }
-
     override fun getFoodTypes(
         onSuccess: (LiveData<List<FoodTypeVO>>) -> Unit,
         onFail: (String) -> Unit
@@ -61,6 +58,18 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
 
     override fun addToCart(foodVO: FoodVO, onSuccess: () -> Unit, onFail: (String) -> Unit) {
        deliveryApi.addToCart(foodVO,onSuccess,onFail)
+    }
+
+    override fun getCartItems(onSuccess: (List<CartItemWrapper>) -> Unit, onFail: (String) -> Unit) {
+        deliveryApi.getCartItems(onSuccess = {
+            onSuccess(it)
+        },onFail = {
+            onFail(it)
+        })
+    }
+
+    override fun clearCart(ids: List<String>) {
+        deliveryApi.clearCart(ids)
     }
 
 }

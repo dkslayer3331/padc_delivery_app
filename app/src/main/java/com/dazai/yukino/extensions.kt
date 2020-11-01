@@ -47,6 +47,13 @@ fun Map<String, Any>?.toFoodTypeVO() : FoodTypeVO{
     )
 }
 
+fun Map<String, Any>?.toCartWrapper() : CartItemWrapper{
+    return CartItemWrapper(
+        food = (this?.get("food") as Map<String,Any>?).toFoodVO(),
+        quantity = (this?.get("quantity") as Long).toInt()
+    )
+}
+
 fun Map<String, Any>?.toCartVO() : CartVO{
     val temCartItems = mutableListOf<CartItemWrapper>()
     val cartItems = this?.get("cart_items") as Array<Map<String,Any>>?

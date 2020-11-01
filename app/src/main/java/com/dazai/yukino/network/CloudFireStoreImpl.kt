@@ -2,16 +2,13 @@ package com.dazai.yukino.network
 
 import android.content.Context
 import android.util.Log
-import com.dazai.yukino.NO_INTERNET_CONNECTION
+import com.dazai.yukino.*
 import com.dazai.yukino.data.model.BaseModel
 import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.data.vos.FoodTypeVO
 import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.persistance.database.DeliveryDb
-import com.dazai.yukino.toFoodTypeVO
-import com.dazai.yukino.toHashMap
-import com.dazai.yukino.toRestaurantVO
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -64,11 +61,24 @@ object CloudFireStoreImpl : DeliveryApi , BaseModel(){
         onSuccess: (List<CartItemWrapper>) -> Unit,
         onFail: (String) -> Unit
     ) {
+        fireStore.collection("cart").addSnapshotListener { value, error ->
+            error?.let {
+                onFail(it.message ?: NO_INTERNET_CONNECTION)
+            }   ?: run {
+                val tempList = mutableListOf<CartItemWrapper>()
+                val documents = value?.documents ?: emptyList()
 
+                documents.forEach {
+                    val data = it.data.toCartWrapper()
+                    tempList.add(data)
+                }
+
+                onSuccess(tempList)
+            }
+        }
     }
 
     override fun addToCart(foodVO: FoodVO, onSuccess: () -> Unit, onFail: (String) -> Unit) {
-        Log.d("addtoCartCloud","get called")
 
         val data = hashMapOf(
             "food" to foodVO.toHashMap(),
@@ -84,6 +94,18 @@ object CloudFireStoreImpl : DeliveryApi , BaseModel(){
               .addOnFailureListener {
                   onFail(it.message ?: NO_INTERNET_CONNECTION)
               }
+    }
+
+    override fun clearCart(ids: List<String>) {
+        ids.forEach {
+            fireStore.collection("cart").document(it).delete()
+                .addOnCompleteListener {
+                    Log.d("delete","complete")
+                }
+                .addOnFailureListener {
+                    Log.d("delete","fail")
+                }
+        }
     }
 
 }

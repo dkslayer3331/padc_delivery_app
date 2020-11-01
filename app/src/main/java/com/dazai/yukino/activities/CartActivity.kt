@@ -10,6 +10,7 @@ import com.dazai.yukino.R
 import com.dazai.yukino.adapters.CartAdapter
 import com.dazai.yukino.data.vos.CartItemWrapper
 import com.dazai.yukino.fragments.ModalBottomSheet
+import com.dazai.yukino.loadImage
 import com.dazai.yukino.mvp.presenters.CartPresenter
 import com.dazai.yukino.mvp.presenters.impls.CartPresenterImpl
 import com.dazai.yukino.mvp.views.CartView
@@ -64,6 +65,7 @@ class CartActivity : AppCompatActivity() , CartView{
     override fun showEmptyCartView() {
         cartView.visibility = View.GONE
         emptyView.visibility = View.VISIBLE
+        ivEmptyCart.loadImage("https://cdn.dribbble.com/users/1244867/screenshots/4346888/empty_cart.jpg")
     }
 
     override fun showSubTotal(total: Long) {

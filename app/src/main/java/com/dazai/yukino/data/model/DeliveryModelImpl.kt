@@ -2,6 +2,7 @@ package com.dazai.yukino.data.model
 
 import androidx.lifecycle.LiveData
 import com.dazai.yukino.data.vos.FoodTypeVO
+import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.network.CloudFireStoreImpl
 import com.dazai.yukino.network.DeliveryApi
@@ -57,5 +58,9 @@ object DeliveryModelImpl : DeliveryModel, BaseModel() {
     }
 
     override fun getRestaurantById(id: String): RestaurantVO = mDb.restaurantDao().getRestaurantById(id)
+
+    override fun addToCart(foodVO: FoodVO, onSuccess: () -> Unit, onFail: (String) -> Unit) {
+       deliveryApi.addToCart(foodVO,onSuccess,onFail)
+    }
 
 }

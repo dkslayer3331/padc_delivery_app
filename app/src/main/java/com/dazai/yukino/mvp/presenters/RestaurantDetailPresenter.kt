@@ -1,6 +1,7 @@
 package com.dazai.yukino.mvp.presenters
 
 import com.dazai.yukino.base.BasePresenter
+import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.mvp.views.RestaurantDetailView
 
 /**
@@ -8,4 +9,5 @@ import com.dazai.yukino.mvp.views.RestaurantDetailView
  */
 interface RestaurantDetailPresenter : BasePresenter<RestaurantDetailView> {
     fun onUiReady(id : String)
+    fun onTapAddToCart(foodVO: FoodVO)
 }

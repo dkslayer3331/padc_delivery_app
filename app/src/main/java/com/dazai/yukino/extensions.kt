@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.dazai.yukino.activities.FoodDetailActivity
 import com.dazai.yukino.data.vos.*
 
 /**
@@ -79,5 +80,18 @@ fun Map<String, Any>?.toRestaurantVO() : RestaurantVO{
         availFoods = tempAvailFoods,
         location = this?.get("location") as String,
         shopImgUrl = this?.get("shop_img_url") as String
+    )
+}
+
+fun FoodVO.toHashMap() : HashMap<String,Any>{
+    return hashMapOf(
+        "price" to this.price,
+        "image_url" to this.imageUrl,
+        "ratings" to this.ratings,
+        "name" to this.name,
+        "ingredients" to this.ingredients,
+        "id" to this.id,
+        "stars" to this.stars,
+        "popular" to this.popular
     )
 }

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.dazai.yukino.R
 import com.dazai.yukino.adapters.FoodAdapter
@@ -13,6 +14,7 @@ import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.mvp.presenters.RestaurantDetailPresenter
 import com.dazai.yukino.mvp.presenters.impls.RestaurantDetailPresenterImpl
 import com.dazai.yukino.mvp.views.RestaurantDetailView
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_food_detail.*
 
 class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
@@ -27,11 +29,11 @@ class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
 
     }
 
-    lateinit var allFoodAdapter : FoodAdapter
+    private lateinit var allFoodAdapter : FoodAdapter
 
-    lateinit var popularFoodAdapter: FoodAdapter
+    private lateinit var popularFoodAdapter: FoodAdapter
 
-    lateinit var detailPresenter: RestaurantDetailPresenter
+    private lateinit var detailPresenter: RestaurantDetailPresenter
 
     private fun setupPresenter(){
         detailPresenter = ViewModelProviders.of(this).get(RestaurantDetailPresenterImpl::class.java)
@@ -39,8 +41,8 @@ class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
     }
 
     private fun setupAllAdapters(){
-        allFoodAdapter = FoodAdapter(false)
-        popularFoodAdapter = FoodAdapter(true)
+        allFoodAdapter = FoodAdapter(false,this)
+        popularFoodAdapter = FoodAdapter(true, this)
         rvPopularFood.adapter = popularFoodAdapter
         rvAllFoodOfType.adapter = allFoodAdapter
     }
@@ -75,6 +77,16 @@ class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
         allFoodAdapter.setNewData(list.toMutableList())
     }
 
+    override fun showSuccessAddToCart() {
+        Log.d("success","add to cart")
+        Snackbar.make(window.decorView,"Added To Cart",Snackbar.LENGTH_SHORT).show()
+    }
+
     override fun showErrorMessage(message: String) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+    }
+
+    override fun onTapAddToCart(foodVO: FoodVO) {
+        detailPresenter.onTapAddToCart(foodVO)
     }
 }

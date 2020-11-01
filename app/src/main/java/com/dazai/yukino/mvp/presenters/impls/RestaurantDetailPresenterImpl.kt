@@ -3,6 +3,7 @@ package com.dazai.yukino.mvp.presenters.impls
 import com.dazai.yukino.base.AbstractBasePresenter
 import com.dazai.yukino.data.model.DeliveryModel
 import com.dazai.yukino.data.model.DeliveryModelImpl
+import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.mvp.presenters.RestaurantDetailPresenter
 import com.dazai.yukino.mvp.views.RestaurantDetailView
 
@@ -20,5 +21,13 @@ class RestaurantDetailPresenterImpl : AbstractBasePresenter<RestaurantDetailView
         mView?.showDetail(restaurant)
         mView?.showAllFoods(allFoods)
         mView?.showPopularFoods(popularFoods)
+    }
+
+    override fun onTapAddToCart(foodVO: FoodVO) {
+        model.addToCart(foodVO,onSuccess = {
+            mView?.showSuccessAddToCart()
+        },onFail = {
+            mView?.showErrorMessage(it)
+        })
     }
 }

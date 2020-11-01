@@ -2,6 +2,7 @@ package com.dazai.yukino.data.model
 
 import androidx.lifecycle.LiveData
 import com.dazai.yukino.data.vos.FoodTypeVO
+import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
 import com.dazai.yukino.network.DeliveryApi
 
@@ -25,5 +26,7 @@ interface DeliveryModel {
     fun getFoodTypes(onSuccess : (LiveData<List<FoodTypeVO>>) -> Unit, onFail : (String) -> Unit)
 
     fun getRestaurantById(id : String) : RestaurantVO
+
+    fun addToCart(foodVO: FoodVO,onSuccess: () -> Unit,onFail: (String) -> Unit)
 
 }

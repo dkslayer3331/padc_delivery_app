@@ -15,5 +15,4 @@ abstract class BaseModel{
         mDb = DeliveryDb.getDBInstance(context)
     }
 
-
 }

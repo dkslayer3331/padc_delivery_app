@@ -9,4 +9,5 @@ interface DeliveryApi {
     fun getFoodTypes(onSuccess : (List<FoodTypeVO>) -> Unit, onFail : (String) -> Unit)
     fun getRestaurants(onSuccess: (List<RestaurantVO>) -> Unit, onFail: (String) -> Unit)
     fun getCartItems(onSuccess: (List<CartItemWrapper>) -> Unit, onFail: (String) -> Unit)
+    fun addToCart(foodVO: FoodVO,onSuccess: () -> Unit, onFail: (String) -> Unit)
 }

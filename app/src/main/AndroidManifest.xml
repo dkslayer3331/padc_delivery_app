@@ -13,16 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.OnboardScreenTwo"></activity>
-        <activity android:name=".activities.OnboardScrenOne" />
-        <activity android:name=".activities.FoodDetailActivity" />
-        <activity android:name=".activities.CartActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".activities.OnboardScrenOne">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activities.FoodDetailActivity" />
+        <activity android:name=".activities.CartActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.LoginActivity">
         </activity>
         <activity android:name=".activities.MainActivity" />
     </application>

@@ -107,6 +107,7 @@ class ProfileFragment : Fragment(),ProfileView {
                     }
 
                     ivProfile.setImageBitmap(tempBitmap)
+                   // ivProfile.background = resources.getDrawable(R.drawable.circle_img_background)
 
                 }
 

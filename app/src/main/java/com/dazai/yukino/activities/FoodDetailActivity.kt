@@ -12,6 +12,7 @@ import com.dazai.yukino.R
 import com.dazai.yukino.adapters.FoodAdapter
 import com.dazai.yukino.data.vos.FoodVO
 import com.dazai.yukino.data.vos.RestaurantVO
+import com.dazai.yukino.loadImage
 import com.dazai.yukino.mvp.presenters.RestaurantDetailPresenter
 import com.dazai.yukino.mvp.presenters.impls.RestaurantDetailPresenterImpl
 import com.dazai.yukino.mvp.views.RestaurantDetailView
@@ -69,6 +70,7 @@ class FoodDetailActivity : AppCompatActivity() , RestaurantDetailView{
     }
 
     override fun showDetail(restaurantVO: RestaurantVO) {
+        tvDetailFoodBanner.loadImage(restaurantVO.shopImgUrl)
         tvDetailRestName.text = restaurantVO.name
         tvDetailFoodStar.text = "${restaurantVO.stars}"
         tvDetailRestRating.text = "(${restaurantVO.ratings} ratings)"

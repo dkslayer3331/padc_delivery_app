@@ -15,6 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:menu="@menu/bottom_navigation"
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
         android:background="@android:color/white"
         android:layout_alignParentBottom="true"/>
 

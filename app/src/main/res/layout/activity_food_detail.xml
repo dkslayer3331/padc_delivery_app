@@ -28,15 +28,15 @@
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             android:background="@drawable/textview_round_corner_background"/>
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnViewCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:layout_margin="16dp"
-            android:visibility="gone"
+            style="@style/Widget.Delivery.Button"
             android:text="View Cart"
-            style="@style/roundCornerButton"
+            android:visibility="gone"
             android:layout_gravity="top|right"/>
     </FrameLayout>
 

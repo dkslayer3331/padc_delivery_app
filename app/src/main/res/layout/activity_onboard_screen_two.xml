@@ -30,7 +30,7 @@
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/roundCornerButton"
+        style="@style/Widget.Delivery.Button"
         android:layout_above="@id/btnFacebookSignIn"
         android:layout_margin="16dp"
         android:text="Create Account"/>
@@ -39,7 +39,7 @@
         android:id="@+id/btnFacebookSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/grey_round_corner_button_bg"
+        style="@style/Widget.Delivery.Button.Grey"
         android:layout_margin="16dp"
         android:textStyle="bold"
         android:text="Continue With Facebook"

@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="Get Started"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/white_round_corner_button"
+                style="@style/Widget.Delivery.Button.White"
                 android:textStyle="bold"/>
 
         </LinearLayout>

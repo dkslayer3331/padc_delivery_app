@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/greyColor"
     android:fillViewport="true">
 
     <RelativeLayout
@@ -19,50 +18,76 @@
             android:textColor="@color/pinkColor"
             android:textSize="24sp"/>
 
-        <EditText
-            android:id="@+id/etRegName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlRegUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            style="@style/customEditTextStyles"
             android:layout_below="@id/tvCreateAccLabel"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginTop="16dp">
 
-        <EditText
-            android:id="@+id/etRegMail"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlRegMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            style="@style/customEditTextStyles"
-            android:layout_below="@id/etRegName"
-            android:layout_marginTop="8dp"/>
+            android:layout_below="@id/tlRegUsername"
+            android:layout_marginTop="8dp">
 
-        <EditText
-            android:id="@+id/etRegPass"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlRegPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            style="@style/customEditTextStyles"
-            android:layout_below="@id/etRegMail"
-            android:layout_marginTop="8dp"/>
+            android:layout_below="@id/tlRegMail"
+            android:layout_marginTop="8dp">
 
-        <EditText
-            android:id="@+id/etRegPhone"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlRegPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone"
-            style="@style/customEditTextStyles"
-            android:layout_below="@id/etRegPass"
-            android:layout_marginTop="8dp"/>
+            android:layout_below="@id/tlRegPassword"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRegPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sign Up"
-            style="@style/roundCornerButton"
+            style="@style/Widget.Delivery.Button"
             android:layout_marginTop="16dp"
-            android:layout_below="@id/etRegPhone"/>
+            android:layout_below="@id/tlRegPhone"/>
 
         <TextView
             android:id="@+id/tvTermsAndCondition"

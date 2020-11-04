@@ -1,10 +1,11 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Delivery" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textInputStyle">@style/Widget.Delivery.TextInputLayout</item>
     </style>
     
     
@@ -23,6 +24,33 @@
     <style name="roundCornerButton">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/red_round_corner_background</item>
+    </style>
+
+    <style name="ShapeAppearance.Delivery.RoundCornerShape" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="Widget.Delivery.Button" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:backgroundTint">@color/pinkColor</item>
+        <item name="android:padding">16dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Delivery.RoundCornerShape</item>
+    </style>
+
+    <style name="Widget.Delivery.Button.Grey" parent="Widget.Delivery.Button">
+        <item name="android:backgroundTint">@color/greyColor</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Widget.Delivery.Button.White" parent="Widget.Delivery.Button">
+        <item name="android:backgroundTint">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="Widget.Delivery.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearance">@style/ShapeAppearance.Delivery.RoundCornerShape</item>
     </style>
 
 </resources>

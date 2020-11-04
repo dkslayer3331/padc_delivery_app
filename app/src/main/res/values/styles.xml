@@ -7,24 +7,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="textInputStyle">@style/Widget.Delivery.TextInputLayout</item>
     </style>
-    
-    
-    <style name="roundCornerImage" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
-    </style>
-
-    <style name="customEditTextStyles">
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
-        <item name="android:background">@drawable/white_round_corner_edittext_background</item>
-    </style>
-
-    <style name="roundCornerButton">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:background">@drawable/red_round_corner_background</item>
-    </style>
 
     <style name="ShapeAppearance.Delivery.RoundCornerShape" parent="ShapeAppearance.MaterialComponents.MediumComponent">
         <item name="cornerFamily">rounded</item>
